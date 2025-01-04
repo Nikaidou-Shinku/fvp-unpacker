@@ -1,6 +1,6 @@
-[package]
-name = "fvp-unpacker"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+[workspace]
+resolver = "3"
+members = [
+  "fvp-unpacker-core",
+  "fvp-unpacker-cli",
+]

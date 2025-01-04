@@ -1,0 +1,14 @@
+[package]
+name = "fvp-unpacker-core"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+thiserror = "2.0.9"
+encoding_rs = "0.8.35"
+png = "0.17.16"
+
+[dependencies.flate2]
+version = "1.0.35"
+default-features = false
+features = ["zlib-ng"]
