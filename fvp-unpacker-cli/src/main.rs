@@ -1,6 +1,9 @@
 mod cli;
 
-use std::{fs::{self, File}, io::BufWriter};
+use std::{
+  fs::{self, File},
+  io::BufWriter,
+};
 
 use clap::Parser;
 use fvp_unpacker_core::{

@@ -135,7 +135,7 @@ pub struct FvpHzcEntry<'a> {
   data: &'a [u8],
 }
 
-impl<'a> FvpHzcEntry<'a> {
+impl FvpHzcEntry<'_> {
   pub fn offset(&self) -> (u16, u16) {
     (self.header.offset_x, self.header.offset_y)
   }
