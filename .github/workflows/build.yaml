@@ -29,4 +29,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ matrix.os }}
-          path: ./target/release/fvp-unpacker-cli*
+          path: ${{ matrix.os == 'windows-latest' && './target/release/fvp-unpacker-cli.exe' || './target/release/fvp-unpacker-cli' }}
