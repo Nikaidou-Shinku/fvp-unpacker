@@ -4,6 +4,7 @@ A blazing fast tool to unpack FVP archive.
 
 ### Features
 
+- List all files in `.bin` archive
 - Unpack images from `.bin` archive
 
 #### TODO
@@ -17,15 +18,14 @@ A blazing fast tool to unpack FVP archive.
 ```console
 A blazing fast tool to unpack FVP archive
 
-Usage: fvp-unpacker-cli [OPTIONS] --input <INPUT> <COMMAND>
+Usage: fvp-unpacker-cli <COMMAND>
 
 Commands:
   unpack  Unpack all files from the archive without additional processing
+  list    List files that can be unpacked
   help    Print this message or the help of the given subcommand(s)
 
 Options:
-  -i, --input <INPUT>    Input file path
-  -o, --output <OUTPUT>  Output directory path [default: ./output]
-  -h, --help             Print help
-  -V, --version          Print version
+  -h, --help     Print help
+  -V, --version  Print version
 ```
