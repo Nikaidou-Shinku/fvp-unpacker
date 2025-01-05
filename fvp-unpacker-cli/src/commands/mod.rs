@@ -1,11 +1,15 @@
+mod list;
 mod unpack;
 
 use anyhow::Result;
 
-use crate::cli::{Cli, Commands};
+use crate::cli::Cli;
+pub use list::ListArgs;
+pub use unpack::UnpackArgs;
 
 pub fn run(args: &Cli) -> Result<()> {
-  match &args.command {
-    Commands::Unpack => unpack::unpack(args),
+  match args {
+    Cli::Unpack(args) => unpack::unpack(args),
+    Cli::List(args) => list::list(args),
   }
 }

@@ -1,16 +1,27 @@
 use std::{
   fs::{self, File},
   io::BufWriter,
+  path::PathBuf,
 };
 
 use anyhow::Result;
+use clap::Args;
 use fvp_unpacker_core::prelude::*;
 use memmap2::Mmap;
 use rayon::prelude::*;
 
-use crate::cli::Cli;
+#[derive(Args)]
+pub struct UnpackArgs {
+  /// Input file path
+  #[arg(short, long)]
+  input: PathBuf,
 
-pub fn unpack(args: &Cli) -> Result<()> {
+  /// Output directory path
+  #[arg(short, long, default_value = "./output")]
+  output: PathBuf,
+}
+
+pub fn unpack(args: &UnpackArgs) -> Result<()> {
   if !args.output.is_dir() {
     fs::create_dir_all(&args.output)?;
   }
@@ -19,6 +30,7 @@ pub fn unpack(args: &Cli) -> Result<()> {
   // SAFETY: it's not my fault :(
   let content = unsafe { Mmap::map(&input_file) }?;
 
+  // TODO: handle other formats
   let arc: FvpBin = content.fread(0)?;
 
   arc

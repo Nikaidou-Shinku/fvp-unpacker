@@ -9,3 +9,4 @@ fvp-unpacker-core = { path = "../fvp-unpacker-core" }
 memmap2 = "0.9.5"
 rayon = "1.10.0"
 clap = { version = "4.5.23", features = ["derive"] }
+comfy-table = "7.1.3"
