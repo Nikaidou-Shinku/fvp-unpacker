@@ -31,20 +31,37 @@ pub fn unpack(args: &UnpackArgs) -> Result<()> {
   let content = unsafe { Mmap::map(&input_file) }?;
 
   // TODO: handle other formats
-  let arc: FvpBin = content.fread(0)?;
+  let arc = FvpBin::parse(content)?;
 
   arc
     .entries()
     .par_iter()
     .map(|entry| {
       let filename = entry.filename();
-      // TODO: handle other file formats
-      let hzc: FvpHzc = entry.data().fread(0)?;
 
-      for (i, img) in hzc.entries().enumerate() {
-        let output_path = args.output.join(format!("{filename}-{i}.png"));
-        let output_file = File::create(output_path)?;
-        img.write_to_png(BufWriter::new(output_file))?;
+      // TODO: handle other file formats
+      match DynamicFvpHzc::parse(entry.data())? {
+        DynamicFvpHzc::Bgr(hzc) => {
+          for (i, img) in hzc.entries().iter().enumerate() {
+            let output_path = args.output.join(format!("{filename}-{i}.png"));
+            let output_file = File::create(output_path)?;
+            img.write_to_png(BufWriter::new(output_file))?;
+          }
+        }
+        DynamicFvpHzc::Bgra(hzc) => {
+          for (i, img) in hzc.entries().iter().enumerate() {
+            let output_path = args.output.join(format!("{filename}-{i}.png"));
+            let output_file = File::create(output_path)?;
+            img.write_to_png(BufWriter::new(output_file))?;
+          }
+        }
+        DynamicFvpHzc::Gray(hzc) => {
+          for (i, img) in hzc.entries().iter().enumerate() {
+            let output_path = args.output.join(format!("{filename}-{i}.png"));
+            let output_file = File::create(output_path)?;
+            img.write_to_png(BufWriter::new(output_file))?;
+          }
+        }
       }
 
       Ok(())

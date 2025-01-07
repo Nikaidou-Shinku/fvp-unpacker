@@ -25,7 +25,7 @@ pub fn list(args: &ListArgs) -> Result<()> {
   let content = unsafe { Mmap::map(&input_file) }?;
 
   // TODO: handle other formats
-  let arc: FvpBin = content.fread(0)?;
+  let arc = FvpBin::parse(content)?;
 
   let mut table = Table::new();
   table
