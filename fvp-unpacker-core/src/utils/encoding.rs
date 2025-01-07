@@ -17,3 +17,17 @@ pub fn decode_string(bytes: &[u8]) -> FvpResult<Cow<str>> {
 
   Ok(cow)
 }
+
+pub fn encode_string(string: &str) -> FvpResult<Cow<[u8]>> {
+  let (cow, encoding_used, had_errors) = SHIFT_JIS.encode(string);
+
+  if had_errors {
+    return Err(FvpError::CannotEncodeString);
+  }
+
+  if encoding_used != SHIFT_JIS {
+    return Err(FvpError::StringEncodingMismatch);
+  }
+
+  Ok(cow)
+}

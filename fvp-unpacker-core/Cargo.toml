@@ -5,7 +5,10 @@ edition = "2024"
 
 [dependencies]
 thiserror = "2.0.9"
+bytemuck = { version = "1.21.0", features = ["extern_crate_alloc"] }
 encoding_rs = "0.8.35"
+rgb = "0.8.50"
+imgref = "1.11.0"
 png = "0.17.16"
 
 [dependencies.flate2]

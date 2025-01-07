@@ -2,3 +2,6 @@
 
 *.bin
 /output
+
+# keep `.bin` files used as test cases
+!/*/tests/*.bin

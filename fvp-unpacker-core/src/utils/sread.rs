@@ -6,11 +6,11 @@ use super::encoding::decode_string;
 use crate::error::{FvpError, FvpResult};
 
 pub trait FvpBuffer {
-  fn fread<'a, N: FvpRead<'a>>(&'a self, offset: usize) -> FvpResult<N>;
+  fn sread<'a, N: FvpRead<'a>>(&'a self, offset: usize) -> FvpResult<N>;
 }
 
 impl FvpBuffer for [u8] {
-  fn fread<'a, N: FvpRead<'a>>(&'a self, offset: usize) -> FvpResult<N> {
+  fn sread<'a, N: FvpRead<'a>>(&'a self, offset: usize) -> FvpResult<N> {
     N::from_buffer(&self[offset..])
   }
 }

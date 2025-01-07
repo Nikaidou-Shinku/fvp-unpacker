@@ -1,2 +1,2 @@
 pub mod encoding;
-pub mod fread;
+pub mod sread;
