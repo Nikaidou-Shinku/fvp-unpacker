@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-thiserror = "2.0.9"
+thiserror = "2.0.11"
 bytemuck = { version = "1.21.0", features = ["extern_crate_alloc"] }
 encoding_rs = "0.8.35"
 rgb = "0.8.50"
