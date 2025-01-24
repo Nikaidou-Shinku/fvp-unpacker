@@ -6,6 +6,7 @@ A blazing fast tool to unpack FVP archive.
 
 - List all files in `.bin` archive
 - Unpack images from `.bin` archive
+- Process images in `.bin` archive, and output the tachie(立ち絵)
 
 #### TODO
 
