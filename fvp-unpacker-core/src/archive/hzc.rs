@@ -11,9 +11,10 @@ use crate::{
   utils::sread::FvpBuffer,
 };
 
+#[derive(Clone)]
 pub struct FvpHzcEntry<Pixel> {
-  offset: (u16, u16),
-  data: ImgVec<Pixel>,
+  pub offset: (u16, u16),
+  pub data: ImgVec<Pixel>,
   // TODO: replace `Vec<Pixel>` with `Box<[Pixel]>`
   // data: Img<Box<[Pixel]>>,
 }
@@ -89,7 +90,7 @@ impl FvpHzcEntry<Gray<u8>> {
       self.data.width() as u32,
       self.data.height() as u32,
       ColorType::Grayscale,
-      &data,
+      data,
     )?;
     Ok(())
   }
