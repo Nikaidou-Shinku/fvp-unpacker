@@ -23,6 +23,7 @@ Usage: fvp-unpacker-cli <COMMAND>
 Commands:
   unpack  Unpack all files from the archive without additional processing
   list    List files that can be unpacked
+  tachie  Process the original image and output the tachie(立ち絵)
   help    Print this message or the help of the given subcommand(s)
 
 Options:
