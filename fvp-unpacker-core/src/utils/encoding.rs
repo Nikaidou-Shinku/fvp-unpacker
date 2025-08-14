@@ -4,7 +4,7 @@ use encoding_rs::SHIFT_JIS;
 
 use crate::error::{FvpError, FvpResult};
 
-pub fn decode_string(bytes: &[u8]) -> FvpResult<Cow<str>> {
+pub fn decode_string(bytes: &[u8]) -> FvpResult<Cow<'_, str>> {
   let (cow, encoding_used, had_errors) = SHIFT_JIS.decode(bytes);
 
   if had_errors {
@@ -18,7 +18,7 @@ pub fn decode_string(bytes: &[u8]) -> FvpResult<Cow<str>> {
   Ok(cow)
 }
 
-pub fn encode_string(string: &str) -> FvpResult<Cow<[u8]>> {
+pub fn encode_string(string: &str) -> FvpResult<Cow<'_, [u8]>> {
   let (cow, encoding_used, had_errors) = SHIFT_JIS.encode(string);
 
   if had_errors {
