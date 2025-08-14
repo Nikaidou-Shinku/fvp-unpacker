@@ -4,9 +4,9 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-anyhow = "1.0.97"
+anyhow = "1.0.99"
 fvp-unpacker-core = { path = "../fvp-unpacker-core" }
-memmap2 = "0.9.5"
-rayon = "1.10.0"
-clap = { version = "4.5.32", features = ["derive"] }
+memmap2 = "0.9.7"
+rayon = "1.11.0"
+clap = { version = "4.5.45", features = ["derive"] }
 comfy-table = "7.1.4"

@@ -4,14 +4,14 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
-thiserror = "2.0.12"
-bytemuck = { version = "1.22.0", features = ["extern_crate_alloc"] }
+thiserror = "2.0.14"
+bytemuck = { version = "1.23.2", features = ["extern_crate_alloc"] }
 encoding_rs = "0.8.35"
-rgb = "0.8.50"
+rgb = "0.8.52"
 imgref = "1.11.0"
 png = "0.17.16"
 
 [dependencies.flate2]
-version = "1.1.0"
+version = "1.1.2"
 default-features = false
 features = ["zlib-ng"]
